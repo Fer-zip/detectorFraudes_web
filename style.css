@@ -9,7 +9,7 @@
 :root{
     --bk-color: #fff;
     --bk-color-2: #c2ccff; /*#adbaff  #509abc*/
-    --color: #000;
+    --color: #090713;
     --line-color-header: #bfbfbf;
     --color-h2: #0020d4;
     --filter-img-pgt: #e861ff;
@@ -22,7 +22,7 @@
 .dark_mode{
     --bk-color: #20212d;
     --bk-color-2: #020617; /*#000a45  #151723*/
-    --color: #fff;
+    --color: #f3f3f3;
     --line-color-header: #5d5d5d;
     --color-h2: #ffeb3b;
     --filter-img-pgt: #ff9800;
@@ -225,7 +225,7 @@ main{
     min-height: 75dvh;
     display: flex;
     flex-direction: column;
-    gap: 30dvh;
+    gap: 10dvh;
     padding: 10dvh 13dvh;
 }
 
