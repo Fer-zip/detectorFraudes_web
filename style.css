@@ -54,9 +54,23 @@ a{
 body{
     min-height: 100dvh;
     width: 100%;
-    transition: background-color 0.3s ease-out;
+    transition: background-color 0.2s ease-out;
     background-color: var(--bk-color);
 }
+
+
+.scroll-element {
+  opacity: 0;
+  transform: translateY(100px) scale(0.8); /* empieza abajo y más pequeño */
+  transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.scroll-element.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1); /* vuelve a su lugar y tamaño real */
+}
+
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
@@ -225,7 +239,7 @@ main{
     min-height: 75dvh;
     display: flex;
     flex-direction: column;
-    gap: 10dvh;
+    gap: 20dvh;
     padding: 10dvh 13dvh;
 }
 
@@ -293,8 +307,15 @@ section{
     gap: 1dvh;
     width: 100%;
     justify-content: center;
-    background-color: cornflowerblue;
     color: white;
+    background-color: rgb(50, 117, 241);
+    filter: drop-shadow(2px 4px 6px var(--bk-color-2));
+    
+    transition: background-color 0.3s ease-in-out;
+}
+
+.diseñoSeleccionar:hover{
+    background-color: rgb(84, 140, 246);
 }
 
 .inputImage{
@@ -314,6 +335,8 @@ input{
     font-size: 1.2rem;
     border-radius: 10px;
     width: 100%;
+    background-color: #b6ff6d;
+    filter: drop-shadow(2px 4px 6px var(--bk-color-2));
 }
 
 
