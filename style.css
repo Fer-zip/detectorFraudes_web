@@ -7,7 +7,7 @@
 }
 
 :root{
-    --bk-color: #fff;
+    --bk-color: #f0f0f0;
     --bk-color-2: #c2ccff; /*#adbaff  #509abc*/
     --color: #090713;
     --line-color-header: #bfbfbf;
@@ -17,6 +17,7 @@
     --filter-color: #f3afff;
     --filter-color-2: #673AB7;
     --filter-color-3: #7dd7ff;
+    --color-hero: #4e54c8;
 }
 
 .dark_mode{
@@ -30,6 +31,7 @@
     --filter-color: #3F51B6;
     --filter-color-2: #0027ff;
     --filter-color-3: #76052c;
+    --color-hero: #090713 ;
 }
 
 h1{
@@ -39,6 +41,7 @@ h1{
     align-items: center;
     font-weight: 600;
 }
+
 
 h2{
     color: var(--color-h2);
@@ -74,7 +77,11 @@ body{
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
+.hero-title{
+    color: #fff !important;
+}
 
+/* ------------------ HERO --------- */
 
 /* BARRA DE NAVEGACION */
 
