@@ -12,14 +12,18 @@
     --color: #000;
     --line-color-header: #bfbfbf;
     --color-h2: #0020d4;
+    --filter-img-pgt: #e861ff;
+    --bk-btn-repo: #c2ccff;
 }
 
 .dark_mode{
     --bk-color: #20212d;
-    --bk-color-2: #000; /*#000a45  #151723*/
+    --bk-color-2: #020617; /*#000a45  #151723*/
     --color: #fff;
     --line-color-header: #5d5d5d;
     --color-h2: #ffeb3b;
+    --filter-img-pgt: #ff9800;
+    --bk-btn-repo: #fff;
 }
 
 h1{
@@ -84,6 +88,67 @@ header{
 
 .logo img{
     object-fit: contain;
+}
+
+.menu{
+    height: 40px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.lineMenu{
+    height: 5px;
+    width: 100%;
+    background-color: var(--color);
+    border-radius: 5px ;
+}
+
+.menuDesplegado{
+    display: none;
+}
+
+.listNavMin{
+    position: fixed;
+    top: 125%;
+    left: 55%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1dvh;
+    background-color: var(--bk-color);
+    padding: 1px;
+    outline: solid 2px var(--line-color-header);
+    opacity: 0;
+    text-align: center;
+    border-radius: 15px;
+    scale: 1;
+
+    visibility: hidden;
+
+    transition: background-color 0.2s, padding 0.2s, scale 0.2s, opacity 0.2s, visibility 0.2s;
+}
+
+.listNavMin-act{
+    padding: 1dvh;
+    scale: 1.1;
+    opacity: 0.95;
+    visibility: visible;
+}
+
+.itemListNavMin{
+    padding: 6px 13px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in;
+}
+
+.itemListNavMin:hover{
+    background-color: var(--bk-color-2);
+    color: var(--color-h2);
 }
 
 nav{
@@ -305,6 +370,8 @@ input{
     gap: 3dvh;
     border: none;
     cursor: pointer;
+    color: black;
+    background-color: var(--bk-btn-repo);
 
     transition: scale 0.3s ease-in-out;
 }
@@ -392,23 +459,35 @@ input{
     gap: 4dvh;
 }
 
-.ctnPReguntas{
+.ctnPreguntas{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    gap: 2dvh;
 }
 
-.ctnPReguntas p{
+.Pregunta{
     background-color: var(--bk-color-2);
-    color: var(--color);
     border-radius: 15px;
-    padding: 10px 8px;
+}
+
+.Pregunta p:first-child{
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 500;
+    color: var(--color-h2);
+}
+
+.Pregunta p{
+    color: var(--color);
+    padding: 15px 18px;
 }
 
 .ctnImageFAQ img{
     width: 100%;
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(-19px 6px 83px var(--filter-img-pgt));
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -450,6 +529,7 @@ footer{
     text-align: center;
     font-size: 1.2rem;
     border-bottom: solid 2px var(--color);
+    font-weight: 600;
 }
 
 .textSecond{

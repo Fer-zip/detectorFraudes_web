@@ -41,3 +41,11 @@ inputImage.addEventListener('change', function(event) {
         previewContainer.innerHTML = ''; // limpia si no es imagen válida
     }
 });
+
+
+const menu = document.querySelector('#menu')
+const listNavMin = document.querySelector('.listNavMin')
+
+menu.addEventListener('click',()=>{
+    listNavMin.classList.toggle('listNavMin-act')
+})
