@@ -22,13 +22,16 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-const inputImage = document.querySelector('#image') 
+const inputImage = document.querySelector('#image')
+const change_svg = document.querySelector('#change_svg')
 
 inputImage.addEventListener('change', function(event) {
     const file = event.target.files[0];
     const previewContainer = document.querySelector('.previewImage');
 
+    
     if (file && file.type.startsWith('image/')) {
+        change_svg.remove()
         const reader = new FileReader();
         reader.onload = function(e) {
             previewContainer.innerHTML = `<img src="${e.target.result}" alt="Vista previa de la imagen">`;

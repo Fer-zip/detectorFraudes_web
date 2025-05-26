@@ -24,7 +24,10 @@
 
 h1{
     color: var(--color);
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
 }
 
 h2{
@@ -41,7 +44,8 @@ a{
 body{
     min-height: 100dvh;
     width: 100%;
-
+    transition: background-color 0.3s ease-out;
+    background-color: var(--bk-color);
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
@@ -56,22 +60,34 @@ header{
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
     position: fixed;
-    top: 12%;
+    top: 8%;
     left: 50%;
     width: 80%;
     z-index: 10;
     border-radius: 8dvh;
-    opacity: 0.98;
+    opacity: 0.90;
+    filter: drop-shadow(0px 5px 6px var(--bk-color-2));
     padding: 2dvh 10dvh;
     transition: background-color 0.3s ease-out;
     transform: translate(-50%, -50%);
 }
 
+.logo{
+    min-height: 40px;
+    max-height: 40px;
+    display: flex;
+    gap: 1dvh;
+    flex-direction: row;
+}
+
+.logo img{
+    object-fit: contain;
+}
+
 nav{
     height: 7dvh;
-    width: 100%;
     border-radius: 15px;
 
     display: flex;
@@ -84,6 +100,7 @@ nav{
     flex-direction: row;
     gap: 5dvh;
     list-style: none;
+    align-items: center;
 }
 
 .itemListNav{
@@ -125,9 +142,7 @@ nav{
 
 /* MAIN */
 main{
-    transition: background-color 0.3s ease-out;
     min-height: 75dvh;
-    background-color: var(--bk-color);
     display: flex;
     flex-direction: column;
     gap: 30dvh;
@@ -135,7 +150,7 @@ main{
 }
 
 main section:first-child{
-    margin-top: 10dvh;
+    margin-top: 0dvh;
 }
 
 
@@ -157,24 +172,25 @@ section{
 .contenidoInicio{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 5dvh;
+    gap: 10dvh;
 }
 
 .ctnInputImage{
     display: flex;
     flex-direction: column;
-    padding: 1dvh 4dvh;
+    padding: 0dvh 6dvh;
     align-items: center;
     border-radius: 20px;
     gap: 2dvh;
 }
 
 .previewImage{
-    min-height: 450px;
-    max-height: 450px;
+    min-height: 425px;
+    max-height: 425px;
     display: flex;
     padding: 1dvh;
     border-radius: 15px;
+    width: 100%;
 }
 
 .previewImage img {
@@ -218,6 +234,35 @@ input{
 
 
 
+
+.ctnResultado{
+    display: flex;
+    flex-direction: column;
+    /* gap: 1dvh; */
+    padding: 0 9dvh;
+    justify-content: center;
+}
+
+.previewResult{
+    display: flex;
+    padding: 4dvh;
+    border-radius: 15px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+}
+
+.textResult{
+    padding: 1dvh;
+    color: var(--color);
+    background: linear-gradient(90deg, red, #FF5722, #FF9800, #FF5722, #F44336);
+    text-align: center;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+
+
 /* ------------------------------------------------------------------------------------------------------------------------------------------------ */
 
 /* CONTENT INFORMACION */
@@ -245,10 +290,7 @@ input{
     align-items: center;
     border-radius: 17px;
     text-align: center;
-    /* background-color: var(--bk-color); */
-    /* filter: drop-shadow(0 0 10px var(--bk-color-2)); */
     padding: 0dvh 6dvh;
-    /* outline: solid 1px var(--line-color-header); */
 }
 
 .btnRepo{
@@ -285,7 +327,7 @@ input{
     gap: 4dvh;
 }
 
-.ctnComoUsar::after, .ctnComoUsar::before {
+/* .ctnComoUsar::after, .ctnComoUsar::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -294,8 +336,9 @@ input{
     width: 50%;
     translate: -50% -50%;
     z-index: -1;
-    background: radial-gradient(var(--bk-color), white);
-}
+    background: radial-gradient(var(--bk-color), white); 
+} 
+*/
 
 .listComoUsar{
     list-style: none;
@@ -334,19 +377,114 @@ input{
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 
+/* FAQ */
+
+.ctnFAQ{
+    display: flex;
+    flex-direction: column;
+    gap: 5dvh;
+    background-color: transparent;
+}
+
+.contenidoFAQ{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4dvh;
+}
+
+.ctnPReguntas{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.ctnPReguntas p{
+    background-color: var(--bk-color-2);
+    color: var(--color);
+    border-radius: 15px;
+    padding: 10px 8px;
+}
+
+.ctnImageFAQ img{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* FOOTER */
 .line_division{
     margin: auto;
-    width: 95%;
     height: 1px;
     border: none;
-    background: linear-gradient( var(--line-color-header),var(--color-h2),var(--bk-color-2) );
+    background: linear-gradient(90deg, var(--line-color-header),var(--color-h2),var(--bk-color-2) );
 }
 
 footer{
-    min-height: 30dvh;
-    background-color: var(--bk-color);
+    display: flex;
+    flex-direction: column;
+    gap: 10dvh;
+    padding: 5dvh 15dvh;
+    margin: 5dvh auto 0;
+}
+
+.contentPrincipalFooter{
+    display: grid;
+    justify-content: space-evenly;
+    gap: 13dvh;
+}
+
+.ctnTextFooter{
+    display: flex;
+    flex-direction: column;
+    gap: 2dvh;
+    color: var(--color);
+}
+
+.ctnTextFooter p{
+    padding: 8px 5px;
+}
+
+.ctnTextFooter p:first-child{
+    text-align: center;
+    font-size: 1.2rem;
+    border-bottom: solid 2px var(--color);
+}
+
+.textSecond{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #b1b1b1;
+    padding: 2dvh 0;
+}
+
+.logoFooter{
+    display: grid;
+    color: var(--color);
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-column-start: 1;
+    grid-column-end: 3;
+    justify-items: center;
+    align-content: center;
+    gap: 1dvh;
+
+}
+
+h3{
+    font-size: 2.3rem;
+}
+
+
+.ctn2{
+    grid-column-start: 3;
+    grid-column-end: 4; 
+}
+
+.ctn3{
+    grid-column-start: 4;
+    grid-column-end: 5;
 }
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------------------------- */
