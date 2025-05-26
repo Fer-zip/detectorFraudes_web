@@ -14,6 +14,9 @@
     --color-h2: #0020d4;
     --filter-img-pgt: #e861ff;
     --bk-btn-repo: #c2ccff;
+    --filter-color: #f3afff;
+    --filter-color-2: #673AB7;
+    --filter-color-3: #7dd7ff;
 }
 
 .dark_mode{
@@ -24,6 +27,9 @@
     --color-h2: #ffeb3b;
     --filter-img-pgt: #ff9800;
     --bk-btn-repo: #fff;
+    --filter-color: #3F51B6;
+    --filter-color-2: #0027ff;
+    --filter-color-3: #76052c;
 }
 
 h1{
@@ -92,13 +98,22 @@ header{
 
 .menu{
     height: 40px;
-    width: 40px;
+    width: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 5px;
+    padding: 5px 7px;
+    border-radius: 10px;
     cursor: pointer;
+
+    transition: background-color 0.3s ease-out, scale 0.2s ease-in-out;
+}
+
+.menu:hover{
+    background-color: var(--bk-color-2);
+    scale: 1.05;
 }
 
 .lineMenu{
@@ -136,7 +151,7 @@ header{
 .listNavMin-act{
     padding: 1dvh;
     scale: 1.1;
-    opacity: 0.95;
+    opacity: 1;
     visibility: visible;
 }
 
@@ -247,6 +262,8 @@ section{
     align-items: center;
     border-radius: 20px;
     gap: 2dvh;
+
+    filter: drop-shadow(-46px 33px 94px var(--filter-color));
 }
 
 .previewImage{
@@ -270,13 +287,14 @@ section{
     display: flex;
     flex-direction: row;
     border-radius: 10px;
-    padding: 8px 10px;
+    padding: 10px;
+    font-size: 1.2rem;
     align-items: center;
     gap: 1dvh;
     width: 100%;
     justify-content: center;
     background-color: cornflowerblue;
-    color: var(--color);
+    color: white;
 }
 
 .inputImage{
@@ -292,8 +310,9 @@ input{
 .btnImage{
     border: none;
     cursor: pointer;
-    padding: 8px 10px;
-    border-radius: 7px;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
     width: 100%;
 }
 
@@ -337,6 +356,8 @@ input{
     flex-direction: column;
     gap: 4dvh;
     background-color: transparent;
+
+    filter: drop-shadow(88px 8px 70px var(--filter-color-2));
 }
 
 .contenidoInfo{  
@@ -414,6 +435,8 @@ input{
     gap: 5dvh;
     padding: 0 3dvh;
     text-align: center;
+
+    filter: drop-shadow(-200px 37px 150px var(--filter-color-3));
 }
 
 .itemListComoUsar{
@@ -525,10 +548,23 @@ footer{
     padding: 8px 5px;
 }
 
+.ctnTextFooter a{
+    padding: 8px 5px;
+    border-radius: 10px;
+    text-align: center;
+
+    transition: background-color 0.2s ease-in-out;
+}
+
+.ctnTextFooter a:hover{
+    background-color: var(--bk-color-2);
+}
+
 .ctnTextFooter p:first-child{
     text-align: center;
     font-size: 1.2rem;
     border-bottom: solid 2px var(--color);
+    color: var(--color);
     font-weight: 600;
 }
 
@@ -538,6 +574,7 @@ footer{
     justify-content: space-between;
     color: #b1b1b1;
     padding: 2dvh 0;
+    gap: 10dvh;
 }
 
 .logoFooter{
