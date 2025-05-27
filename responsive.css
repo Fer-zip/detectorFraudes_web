@@ -38,6 +38,10 @@
         gap: 5dvh;
     }
 
+    .switchButton{
+        left: 50%;
+    }
+
     .ctnInputImage{
         padding: 0;
     }
@@ -126,7 +130,7 @@
     .contenidoInicio {
         gap: 5dvh;
     }
-
+    
     .ctnInputImage{
         padding: 0;
     }

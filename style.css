@@ -11,6 +11,7 @@
     --bk-color-2: #3F51B5; /*#adbaff  #509abc*/
     --color-header: #090713;
     --color: #fff;
+    --color-placeholder: #d7d7d7 ;
     --line-color-header: #bfbfbf;
     --color-h2: #FFEB3B;
     --filter-img-pgt: #e861ff;
@@ -26,6 +27,7 @@
     --bk-color-2: #020617; /*#000a45  #151723*/
     --color-header: #f3f3f3;
     --color: #f3f3f3;
+    --color-placeholder: #8a8a8a ;
     --line-color-header: #5d5d5d;
     --color-h2: #ffeb3b;
     --filter-img-pgt: #ff9800;
@@ -276,6 +278,77 @@ section{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10dvh;
+    position: relative;
+}
+
+.switchButton{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    top: 0%;
+    left: 24%;
+    translate: -50% -50%;
+    right: auto;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 1dvh;
+    z-index: 1;
+    border: none;
+
+    transition: scale 0.3s ease-out;
+}
+
+.switchButton:hover{
+    /* background-color: var(--bk-color-2); */
+    /* color: var(--color-h2); */
+    scale: 1.1;
+}
+
+.ctnInputText{
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    scale: 0.7;
+    filter: drop-shadow(-46px -78px 94px var(--filter-color));
+    display: flex;
+    flex-direction: column;
+    gap: 2dvh;
+    padding: 0 6dvh;
+
+    transition: scale 0.2s, opacity 0.2s, visibility 0.2s;
+}
+
+.ctnInputText-act{
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    position: relative;
+}
+
+.inputText{
+    min-height: 425px;
+    max-height: 425px;
+    padding: 7dvh 0 3dvh;
+}
+
+textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: solid 3px #3F51B5;
+    border-radius: 12px;
+    background-color: transparent;
+    color: var(--color);
+    padding: 3dvh;
+    resize: none;
+    font-size: 1.1rem;
+}
+
+textarea::placeholder{
+    color: var(--color-placeholder);
 }
 
 .ctnInputImage{
@@ -285,8 +358,21 @@ section{
     align-items: center;
     border-radius: 20px;
     gap: 2dvh;
-
     filter: drop-shadow(-46px 33px 94px var(--filter-color));
+
+    visibility: visible;
+    opacity: 1;
+    scale: 1;
+    position: relative;
+
+    transition: scale 0.2s, opacity 0.2s, visibility 0.2s;
+}
+
+.ctnInputImage-act{
+    visibility: hidden;
+    opacity: 0;
+    scale: 0.7;
+    position: absolute;
 }
 
 .previewImage{
@@ -305,6 +391,21 @@ section{
     border-radius: 10px;
     object-fit: contain;
     filter: drop-shadow(0px 0px 10px var(--bk-color-2));
+}
+
+.diseñoNoSeleccionar{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+    align-items: center;
+    gap: 1dvh;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    /* background-color: rgb(50, 117, 241); */
+    filter: drop-shadow(2px 4px 6px var(--bk-color-2));
 }
 
 .diseñoSeleccionar{
@@ -493,6 +594,8 @@ input{
 .itemListComoUsar img{
     width: 100%;
     border-radius: 15px;
+    aspect-ratio: 1;
+    object-fit: cover;
 }
 
 .resaltador{

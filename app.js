@@ -74,14 +74,18 @@ const posibleFraude = `<svg width="200px" height="200px" viewBox="0 0 512 512" v
 const alertaFraude = `<svg width="200px" height="200px" viewBox="0 0 512 512" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ff0000;} .st1{fill:none;stroke:#ff0000;stroke-width:32;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <g id="Layer_1"></g> <g id="Layer_2"> <g> <path class="st0" d="M461.86,393.89L299.94,73.68c-18.22-36.03-69.66-36.03-87.88,0L50.14,393.89 c-16.56,32.75,7.24,71.46,43.94,71.46h323.84C454.62,465.34,478.42,426.64,461.86,393.89z M256,423.92 c-17.07,0-30.91-13.84-30.91-30.91c0-17.07,13.84-30.91,30.91-30.91s30.91,13.84,30.91,30.91 C286.91,410.08,273.07,423.92,256,423.92z M287.03,287.2c0,17.14-13.89,31.03-31.03,31.03l0,0c-17.14,0-31.03-13.89-31.03-31.03 V174.72c0-17.14,13.89-31.03,31.03-31.03l0,0c17.14,0,31.03,13.89,31.03,31.03V287.2z"></path> </g> </g> </g></svg>`
 
 
-const btnAnalizar = document.querySelector('#btnAnalizar')
+const btnAnalizarImage = document.querySelector('#btnAnalizarImage')
+const btnAnalizarText = document.querySelector('#btnAnalizarText')
+
 const previewResult = document.querySelector('.previewResult')
+
 const imgresultPRE = document.querySelector('#imgresultPRE')
 const textResult = document.querySelector('.textResult')
+
 let porcentaje = '40'
 let text = `El porcentaje de posibilidades de ser un fraude es: ${porcentaje}%`
 
-btnAnalizar.addEventListener('click', ()=>{
+btnAnalizarImage.addEventListener('click', ()=>{
     if (inputImage.files.length > 0) {
         imgresultPRE.remove()
         previewResult.innerHTML=posibleFraude
@@ -93,6 +97,43 @@ btnAnalizar.addEventListener('click', ()=>{
             text: "Por favor, selecciona una imagen para analizar."
         });
     }
+})
 
+const textArea = document.querySelector('#text')
 
+btnAnalizarText.addEventListener('click', ()=>{
+    if (textArea.value) {
+        previewResult.innerHTML=posibleFraude
+        textResult.innerHTML=text
+    }else {
+        Swal.fire({
+            icon: "error",
+            title: "Vaya...",
+            text: "Por favor, ingresa un texto para analizar."
+        });
+    }
+})
+
+const ctnInputImage = document.querySelector('.ctnInputImage')
+const ctnInputText = document.querySelector('.ctnInputText')
+const switchButton =document.querySelector('#switchButton')
+let textButtonText = `Cambiar a texto
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.9995 15.9995L20.9995 11.9995M20.9995 11.9995L16.9995 7.99951M20.9995 11.9995H8.99951M12.9995 20.9995H6.20029C5.08019 20.9995 4.52014 20.9995 4.09231 20.7815C3.71599 20.5898 3.41003 20.2838 3.21828 19.9075C3.00029 19.4797 3.00029 18.9196 3.00029 17.7995V6.19951C3.00029 5.07941 3.00029 4.51935 3.21828 4.09153C3.41003 3.71521 3.71599 3.40925 4.09231 3.2175C4.52014 2.99951 5.08019 2.99951 6.20029 2.99951L12.9995 2.99951" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`
+let textButtonImage = `Cambiar a image
+                    <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M16.9995 15.9995L20.9995 11.9995M20.9995 11.9995L16.9995 7.99951M20.9995 11.9995H8.99951M12.9995 20.9995H6.20029C5.08019 20.9995 4.52014 20.9995 4.09231 20.7815C3.71599 20.5898 3.41003 20.2838 3.21828 19.9075C3.00029 19.4797 3.00029 18.9196 3.00029 17.7995V6.19951C3.00029 5.07941 3.00029 4.51935 3.21828 4.09153C3.41003 3.71521 3.71599 3.40925 4.09231 3.2175C4.52014 2.99951 5.08019 2.99951 6.20029 2.99951L12.9995 2.99951" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>`
+let ver = false
+
+switchButton.addEventListener('click',()=>{
+    if (ver) {
+        switchButton.innerHTML=textButtonText
+        ver=false
+
+        ctnInputImage.classList.toggle('ctnInputImage-act')
+        ctnInputText.classList.toggle('ctnInputText-act')
+    }else{
+        switchButton.innerHTML=textButtonImage
+        ver=true
+        ctnInputText.classList.toggle('ctnInputText-act')
+        ctnInputImage.classList.toggle('ctnInputImage-act')
+    }
 })
