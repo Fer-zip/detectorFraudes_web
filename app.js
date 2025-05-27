@@ -78,8 +78,8 @@ const btnAnalizar = document.querySelector('#btnAnalizar')
 const previewResult = document.querySelector('.previewResult')
 const imgresultPRE = document.querySelector('#imgresultPRE')
 const textResult = document.querySelector('.textResult')
-let porcentaje = '40%'
-let text = `El porcentaje de posibilidades de ser un fraude es: ${porcentaje}`
+let porcentaje = '40'
+let text = `El porcentaje de posibilidades de ser un fraude es: ${porcentaje}%`
 
 btnAnalizar.addEventListener('click', ()=>{
     if (inputImage.files.length > 0) {

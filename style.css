@@ -66,7 +66,7 @@ body{
 
 .scroll-element {
   opacity: 0;
-  transform: translateY(100px) scale(0.8); /* empieza abajo y más pequeño */
+  transform: translateY(80px) scale(0.8); /* empieza abajo y más pequeño */
   transition: opacity 0.4s ease-out, transform 0.4s ease-out;
 }
 
@@ -293,6 +293,7 @@ section{
     min-height: 425px;
     max-height: 425px;
     display: flex;
+    justify-content: center;
     padding: 1dvh;
     border-radius: 15px;
     width: 100%;
@@ -372,7 +373,7 @@ input{
 .textResult{
     padding: 1dvh;
     color: white;    
-    background-color: #7386f1;
+    /* background-color: #7386f1; */
     text-align: center;
     font-size: 1.5rem;
     border-radius: 15px;
