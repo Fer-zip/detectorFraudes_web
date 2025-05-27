@@ -66,3 +66,33 @@ const listNavMin = document.querySelector('.listNavMin')
 menu.addEventListener('click',()=>{
     listNavMin.classList.toggle('listNavMin-act')
 })
+
+
+
+const noFraude = `<svg width="200px" height="200px" viewBox="0 0 512 512" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#00ff91;} .st1{fill:none;stroke:#00ff91;stroke-width:32;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <g id="Layer_1"></g> <g id="Layer_2"> <g> <path class="st0" d="M256,43.5C138.64,43.5,43.5,138.64,43.5,256S138.64,468.5,256,468.5S468.5,373.36,468.5,256 S373.36,43.5,256,43.5z M378.81,222.92L249.88,351.86c-7.95,7.95-18.52,12.33-29.76,12.33s-21.81-4.38-29.76-12.33l-57.17-57.17 c-8.3-8.3-12.87-19.35-12.87-31.11s4.57-22.81,12.87-31.11c8.31-8.31,19.36-12.89,31.11-12.89s22.8,4.58,31.11,12.89l24.71,24.7 l96.47-96.47c8.31-8.31,19.36-12.89,31.11-12.89c11.75,0,22.8,4.58,31.11,12.89c8.3,8.3,12.87,19.35,12.87,31.11 S387.11,214.62,378.81,222.92z"></path> </g> </g> </g></svg>`
+const posibleFraude = `<svg width="200px" height="200px" viewBox="0 0 512 512" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffdd00;} .st1{fill:none;stroke:#ffdd00;stroke-width:32;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <g id="Layer_1"></g> <g id="Layer_2"> <g> <path class="st0" d="M256,46.66C140.38,46.66,46.66,140.38,46.66,256S140.38,465.34,256,465.34S465.34,371.62,465.34,256 S371.62,46.66,256,46.66z M256,110.88c17.07,0,30.91,13.84,30.91,30.91c0,17.07-13.84,30.91-30.91,30.91s-30.91-13.84-30.91-30.91 C225.09,124.72,238.93,110.88,256,110.88z M287.03,370.09c0,17.14-13.89,31.03-31.03,31.03l0,0c-17.14,0-31.03-13.89-31.03-31.03 V257.61c0-17.14,13.89-31.03,31.03-31.03l0,0c17.14,0,31.03,13.89,31.03,31.03V370.09z"></path> </g> </g> </g></svg>`
+const alertaFraude = `<svg width="200px" height="200px" viewBox="0 0 512 512" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ff0000;} .st1{fill:none;stroke:#ff0000;stroke-width:32;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;} </style> <g id="Layer_1"></g> <g id="Layer_2"> <g> <path class="st0" d="M461.86,393.89L299.94,73.68c-18.22-36.03-69.66-36.03-87.88,0L50.14,393.89 c-16.56,32.75,7.24,71.46,43.94,71.46h323.84C454.62,465.34,478.42,426.64,461.86,393.89z M256,423.92 c-17.07,0-30.91-13.84-30.91-30.91c0-17.07,13.84-30.91,30.91-30.91s30.91,13.84,30.91,30.91 C286.91,410.08,273.07,423.92,256,423.92z M287.03,287.2c0,17.14-13.89,31.03-31.03,31.03l0,0c-17.14,0-31.03-13.89-31.03-31.03 V174.72c0-17.14,13.89-31.03,31.03-31.03l0,0c17.14,0,31.03,13.89,31.03,31.03V287.2z"></path> </g> </g> </g></svg>`
+
+
+const btnAnalizar = document.querySelector('#btnAnalizar')
+const previewResult = document.querySelector('.previewResult')
+const imgresultPRE = document.querySelector('#imgresultPRE')
+const textResult = document.querySelector('.textResult')
+let porcentaje = '40%'
+let text = `El porcentaje de posibilidades de ser un fraude es: ${porcentaje}`
+
+btnAnalizar.addEventListener('click', ()=>{
+    if (inputImage.files.length > 0) {
+        imgresultPRE.remove()
+        previewResult.innerHTML=posibleFraude
+        textResult.innerHTML=text
+    }else {
+        Swal.fire({
+            icon: "error",
+            title: "Vaya...",
+            text: "Por favor, selecciona una imagen para analizar."
+        });
+    }
+
+
+})
